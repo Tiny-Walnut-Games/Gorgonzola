@@ -137,3 +137,5 @@ Thumbs.db
 # Assets/Prefabs/  (user prefabs - TRACKED)
 # Assets/Scenes/   (user game scenes - TRACKED)
 # Assets/Audio/    (user audio - TRACKED)
+/node_modules/
+/Gorgonzola.sln.DotSettings.user

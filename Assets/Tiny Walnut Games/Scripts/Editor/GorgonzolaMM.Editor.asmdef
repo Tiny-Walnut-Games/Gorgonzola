@@ -5,7 +5,10 @@
         "GUID:02650bbac8118a04f9180ab423fe60c4",
         "GUID:8f27f7a0f8da9854cb7c86f15d58fe82",
         "GUID:fea435ffc6350b34dbb9b9aeba0acc3d",
-      "Unity.Collections"
+        "GUID:e0cd26848372d4e5c891c569017e11f1",
+        "GUID:4307f53044263cf4b835bd812fc161a4",
+        "GUID:ba8c092d026123a418fb4bfb797a7bd8",
+        "GUID:4a1cb1490dc4df8409b2580d6b44e75e"
     ],
     "includePlatforms": [
         "Editor"

@@ -1,0 +1,32 @@
+{
+  "name": "gorgonzola-necrohamsto",
+  "version": "1.0.0",
+  "description": "NecroHAMSTO vs Cute Snakes - Turn-based Survivors-IO Prototype",
+  "main": "index.js",
+  "scripts": {
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
+    "test:e2e:debug": "playwright test --debug",
+    "test:e2e:headed": "playwright test --headed",
+    "test:e2e:report": "playwright show-report",
+    "serve:unity": "http-server ./Build -p 3000 -c-1",
+    "install:playwright": "playwright install"
+  },
+  "keywords": [
+    "unity",
+    "game",
+    "topdown",
+    "turn-based",
+    "survivors-io",
+    "necrohamsto"
+  ],
+  "author": "Tiny Walnut Games",
+  "license": "MIT",
+  "devDependencies": {
+    "@playwright/test": "^1.44.0",
+    "http-server": "^14.1.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

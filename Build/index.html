@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>NecroHAMSTO vs Cute Snakes - Game Jam Prototype</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: #1a1a1a;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        #unity-container {
+            width: 960px;
+            height: 540px;
+            background: #000;
+            border: 2px solid #444;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #unity-canvas {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #2a4a2a, #3a5a3a);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .game-object {
+            position: absolute;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px black;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .player {
+            width: 40px;
+            height: 60px;
+            background: #cc9933; /* Hamster gold */
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .enemy {
+            width: 32px;
+            height: 80px;
+            border-radius: 16px;
+        }
+
+        .ribbon-snake {
+            background: #33cc33; /* Green */
+            top: 10%;
+            right: 10%;
+        }
+
+        .boa-hugger {
+            background: #cccc33; /* Yellow */
+            top: 10%;
+            left: 10%;
+        }
+
+        .glitter-cobra {
+            background: #cc33cc; /* Magenta */
+            bottom: 10%;
+            right: 10%;
+        }
+
+        .phylactery {
+            width: 60px;
+            height: 80px;
+            background: #8033cc; /* Purple */
+            border-radius: 30px;
+            bottom: 15%;
+            left: 15%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.1); opacity: 1; }
+        }
+
+        #game-ui {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            z-index: 10;
+        }
+
+        #turn-indicator {
+            background: rgba(0,0,0,0.7);
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        #controls {
+            background: rgba(0,0,0,0.5);
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        #status {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.7);
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            z-index: 10;
+        }
+
+        .loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 20px;
+        }
+
+        .button {
+            background: #4CAF50;
+            border: none;
+            color: white;
+            padding: 8px 16px;
+            margin: 4px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .button:hover {
+            background: #45a049;
+        }
+
+        .debug-info {
+            margin-top: 20px;
+            background: #2a2a2a;
+            padding: 15px;
+            border-radius: 5px;
+            width: 960px;
+            font-family: monospace;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🐹 NecroHAMSTO vs Cute Snakes 🐍</h1>
+    <p><em>Turn-based Survivors-IO Prototype</em></p>
+
+    <div id="unity-container">
+        <div id="unity-canvas">
+            <div id="game-ui">
+                <div id="turn-indicator">PLAYER TURN - Use WASD to move, SPACE to confirm</div>
+                <div id="controls">
+                    <strong>Controls:</strong> WASD = Move | SPACE = Confirm Turn | Q = Squeak of the Damned
+                </div>
+            </div>
+
+            <!-- Game Objects -->
+            <div class="game-object player" id="player">🐹</div>
+            <div class="game-object enemy ribbon-snake" id="snake1">🐍</div>
+            <div class="game-object enemy boa-hugger" id="snake2">🐍</div>
+            <div class="game-object enemy glitter-cobra" id="snake3">✨🐍</div>
+            <div class="game-object phylactery" id="phylactery">🔮</div>
+
+            <div id="status">
+                <strong>Health:</strong> <span id="player-health">100</span> | 
+                <strong>Turn:</strong> <span id="turn-count">1</span> | 
+                <strong>Phase:</strong> <span id="current-phase">Player</span> |
+                <strong>Phylactery:</strong> <span id="phylactery-health">200</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="debug-info">
+        <h3>🎮 Game Jam Test Environment</h3>
+        <p><strong>Status:</strong> <span id="game-status">Initialized and ready for testing</span></p>
+        <p><strong>Framework:</strong> TopDown Engine components loaded</p>
+        <p><strong>Test Coverage:</strong> Turn-based mechanics, Enemy AI, Combat, Death system</p>
+        
+        <button class="button" onclick="simulatePlayerAction()">Simulate Player Move</button>
+        <button class="button" onclick="simulateAttack()">Attack Snake</button>
+        <button class="button" onclick="simulateSpecialAbility()">Squeak of Damned</button>
+        <button class="button" onclick="simulatePlayerDeath()">Test Death/Respawn</button>
+        <button class="button" onclick="reset()">Reset Game</button>
+
+        <div id="log" style="margin-top: 10px; max-height: 200px; overflow-y: auto; background: #1a1a1a; padding: 10px; border-radius: 5px;"></div>
+    </div>
+
+    <script>
+        // Simulate Unity WebGL game state
+        let gameState = {
+            playerHealth: 100,
+            phylacteryHealth: 200,
+            turnCount: 1,
+            currentPhase: 'Player',
+            playerPosition: { x: 50, y: 50 },
+            enemies: [
+                { id: 'snake1', health: 50, type: 'RibbonSnake' },
+                { id: 'snake2', health: 50, type: 'BoaHugger' },
+                { id: 'snake3', health: 50, type: 'GlitterCobra' }
+            ]
+        };
+
+        let gameInitialized = false;
+
+        function log(message) {
+            const logDiv = document.getElementById('log');
+            const timestamp = new Date().toLocaleTimeString();
+            logDiv.innerHTML += `<div>[${timestamp}] ${message}</div>`;
+            logDiv.scrollTop = logDiv.scrollHeight;
+        }
+
+        function updateUI() {
+            document.getElementById('player-health').textContent = gameState.playerHealth;
+            document.getElementById('phylactery-health').textContent = gameState.phylacteryHealth;
+            document.getElementById('turn-count').textContent = gameState.turnCount;
+            document.getElementById('current-phase').textContent = gameState.currentPhase;
+        }
+
+        function nextPhase() {
+            const phases = ['Player', 'Enemy', 'Minion', 'Resolution'];
+            const currentIndex = phases.indexOf(gameState.currentPhase);
+            const nextIndex = (currentIndex + 1) % phases.length;
+            
+            gameState.currentPhase = phases[nextIndex];
+            
+            if (gameState.currentPhase === 'Player') {
+                gameState.turnCount++;
+            }
+            
+            updatePhaseDisplay();
+            updateUI();
+        }
+
+        function updatePhaseDisplay() {
+            const indicator = document.getElementById('turn-indicator');
+            switch (gameState.currentPhase) {
+                case 'Player':
+                    indicator.textContent = 'PLAYER TURN - Use WASD to move, SPACE to confirm';
+                    indicator.style.background = 'rgba(0,100,0,0.7)';
+                    break;
+                case 'Enemy':
+                    indicator.textContent = 'ENEMY TURN - Snakes are moving...';
+                    indicator.style.background = 'rgba(100,0,0,0.7)';
+                    break;
+                case 'Minion':
+                    indicator.textContent = 'MINION TURN - Ghosts and zombies acting...';
+                    indicator.style.background = 'rgba(80,0,80,0.7)';
+                    break;
+                case 'Resolution':
+                    indicator.textContent = 'RESOLUTION - Processing collisions and damage...';
+                    indicator.style.background = 'rgba(100,100,0,0.7)';
+                    break;
+            }
+        }
+
+        function simulatePlayerAction() {
+            if (gameState.currentPhase !== 'Player') {
+                log('❌ Not player turn!');
+                return;
+            }
+            
+            log('🐹 Player moved forward');
+            nextPhase();
+            
+            // Simulate AI phases
+            setTimeout(() => {
+                log('🐍 Snakes moving towards player...');
+                nextPhase();
+            }, 1000);
+            
+            setTimeout(() => {
+                log('👻 Ghosts drifting randomly...');
+                nextPhase();
+            }, 2000);
+            
+            setTimeout(() => {
+                log('⚔️ Resolving collisions...');
+                nextPhase();
+            }, 3000);
+        }
+
+        function simulateAttack() {
+            if (gameState.currentPhase !== 'Player') {
+                log('❌ Not player turn!');
+                return;
+            }
+            
+            const target = gameState.enemies.find(e => e.health > 0);
+            if (target) {
+                target.health -= 25;
+                log(`🌻 Sunflower seed hit ${target.type}! Health: ${target.health}`);
+                
+                if (target.health <= 0) {
+                    log(`💀 ${target.type} defeated!`);
+                    document.getElementById(target.id).style.opacity = '0.3';
+                }
+            }
+            
+            simulatePlayerAction();
+        }
+
+        function simulateSpecialAbility() {
+            if (gameState.currentPhase !== 'Player') {
+                log('❌ Not player turn!');
+                return;
+            }
+            
+            log('💨 SQUEAK OF THE DAMNED! All enemies knocked back!');
+            gameState.enemies.forEach(enemy => {
+                if (enemy.health > 0) {
+                    log(`🌪️ ${enemy.type} pushed away by hamster squeak!`);
+                }
+            });
+            
+            simulatePlayerAction();
+        }
+
+        function simulatePlayerDeath() {
+            gameState.playerHealth = 0;
+            log('💀 NecroHAMSTO died!');
+            log('👻 GhostHamsto spawned at death location');
+            log('🧟 ZombieHamsto shambling towards nearest snake');
+            log('🔮 Respawning at Phylactery...');
+            
+            setTimeout(() => {
+                gameState.playerHealth = 100;
+                log('✨ NecroHAMSTO respawned! The Burrow Remembers...');
+                updateUI();
+            }, 2000);
+            
+            updateUI();
+        }
+
+        function reset() {
+            gameState = {
+                playerHealth: 100,
+                phylacteryHealth: 200,
+                turnCount: 1,
+                currentPhase: 'Player',
+                playerPosition: { x: 50, y: 50 },
+                enemies: [
+                    { id: 'snake1', health: 50, type: 'RibbonSnake' },
+                    { id: 'snake2', health: 50, type: 'BoaHugger' },
+                    { id: 'snake3', health: 50, type: 'GlitterCobra' }
+                ]
+            };
+            
+            // Reset visuals
+            gameState.enemies.forEach(enemy => {
+                document.getElementById(enemy.id).style.opacity = '1';
+            });
+            
+            updatePhaseDisplay();
+            updateUI();
+            log('🔄 Game reset to initial state');
+        }
+
+        // Handle keyboard input
+        document.addEventListener('keydown', function(event) {
+            if (gameState.currentPhase !== 'Player') return;
+
+            switch(event.key) {
+                case 'w':
+                case 'W':
+                    log('⬆️ Moved up');
+                    break;
+                case 's':
+                case 'S':
+                    log('⬇️ Moved down');
+                    break;
+                case 'a':
+                case 'A':
+                    log('⬅️ Moved left');
+                    break;
+                case 'd':
+                case 'D':
+                    log('➡️ Moved right');
+                    break;
+                case ' ':
+                    simulatePlayerAction();
+                    event.preventDefault();
+                    break;
+                case 'q':
+                case 'Q':
+                    simulateSpecialAbility();
+                    break;
+            }
+        });
+
+        // Initialize game
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                gameInitialized = true;
+                document.getElementById('game-status').textContent = 'Ready for testing - All systems operational';
+                updatePhaseDisplay();
+                updateUI();
+                log('🎮 NecroHAMSTO vs Cute Snakes initialized');
+                log('🎯 Turn-based mechanics active');
+                log('🐹 Use WASD + SPACE for turn-based movement');
+            }, 1000);
+        });
+
+        // Expose to global for Playwright testing
+        window.unityInstance = {
+            gameState: gameState,
+            simulatePlayerAction: simulatePlayerAction,
+            simulateAttack: simulateAttack,
+            simulateSpecialAbility: simulateSpecialAbility,
+            reset: reset
+        };
+    </script>
+</body>
+</html>

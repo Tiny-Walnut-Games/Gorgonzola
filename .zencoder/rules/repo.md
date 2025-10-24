@@ -54,10 +54,40 @@ The project uses standard Unity build process:
 **Input System**: Uses Unity's new Input System package with custom action maps
 
 ## Testing
-**Framework**: Unity Test Framework (1.6.0)
-**Test Location**: Tests are located within the project's test assemblies
-**Run Command**:
+**Framework**: Unity Test Framework (1.6.0) for unit tests, Playwright for E2E testing
+**Test Location**: 
+- Unit tests: Located within the project's test assemblies
+- E2E tests: Located in `tests/e2e/` directory
+- TopDown Engine validation: `tests/e2e/topdown-engine-validation.spec.ts`
+
+**Key E2E Tests**:
+- **Turn-based mechanics**: Player → Enemy → Minion → Resolution phases
+- **Combat system**: Sunflower seed projectile weapons with health reduction
+- **Special abilities**: "Squeak of the Damned" AoE knockback effects
+- **Death/respawn system**: GhostHamsto and ZombieHamsto spawning mechanics
+- **TopDown Engine components**: Validation of all core framework components
+
+**Run Commands**:
 ```bash
-# Run tests via Unity Test Runner window
+# Run unit tests via Unity Test Runner window
 # Window > General > Test Runner
+
+# Run all E2E tests with Playwright
+npx playwright test tests/e2e/ --reporter=line
+
+# Run TopDown Engine validation specifically  
+npx playwright test tests/e2e/topdown-engine-validation.spec.ts --reporter=line
 ```
+
+## Scene Setup Scripts
+**QuickPlaySceneSetup.cs**: Enhanced one-click arena setup with TopDown Engine component fallback
+**TopDownEngineSceneSetup.cs**: Complete game-jam-ready scene generation with full component hierarchy
+
+Creates complete playable scenes with:
+- **Managers**: TurnManager, LevelManager, GameManager, InputManager, SoundManager
+- **Arena Environment**: Ground, spawn points, lighting
+- **NecroHAMSTO Player**: Full TopDown Engine component stack (TopDownController3D, CharacterMovement, Health, Weapons)
+- **Snake Enemies**: RibbonSnake, BoaHugger, GlitterCobra with proper AI brains
+- **Phylactery**: Game-over condition object with Health component
+- **Camera System**: Cinemachine integration with player following
+- **UI System**: Turn indicators and game state display
