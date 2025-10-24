@@ -1,0 +1,28 @@
+{
+    "name": "GorgonzolaMM.Core",
+    "rootNamespace": "GorgonzolaMM.Core",
+    "references": [
+        "GUID:fea435ffc6350b34dbb9b9aeba0acc3d",
+        "GUID:8f27f7a0f8da9854cb7c86f15d58fe82",
+        "GUID:8a258d69670d9a54d943dd0e57ffea8a",
+        "GUID:4a1cb1490dc4df8409b2580d6b44e75e",
+        "GUID:02650bbac8118a04f9180ab423fe60c4",
+        "GUID:4307f53044263cf4b835bd812fc161a4",
+        "GUID:e0cd26848372d4e5c891c569017e11f1"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [
+        {
+            "name": "com.unity.cinemachine",
+            "expression": "3.0.0",
+            "define": "MM_CINEMACHINE3"
+        }
+    ],
+    "noEngineReferences": false
+}

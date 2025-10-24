@@ -1,53 +1,89 @@
 # Gorgonzola Game Jam - Git Ignore (Unity 6.2+)
-# NOTE: NO LFS USED. This repo is native Git only.
-# EULA PROTECTION: Third-party assets are NOT committed to avoid licensing breaches.
-# Users must source these locally from their own purchases.
+# ==============================================================================
+# NOTE: NO GIT LFS. Native Git only. No .gitattributes for LFS.
+# EULA PROTECTION: Third-party Asset Store packages NOT committed.
+# Users must install these locally from their own purchases.
+# ==============================================================================
 
 # ============================================================================
 # THIRD-PARTY ASSET PACKS (DO NOT COMMIT - EULA PROTECTED)
 # ============================================================================
-# TopDown Engine Framework (v4.4) - Don't commit
-Assets/TopDownEngine/
+# TopDown Engine Framework (v4.4)
+/Assets/TopDownEngine/
 Assets/TopDownEngine.meta
 
-# PolygonDungeon Assets - Don't commit
-Assets/PolygonDungeon/
+# Polygon Dungeon (Synty Studios)
+/Assets/PolygonDungeon/
 Assets/PolygonDungeon.meta
 
-# Suriyun Character Assets - Don't commit
-Assets/Suriyun/
+# Suriyun Character Assets (Hamsto/characters)
+/Assets/Suriyun/
 Assets/Suriyun.meta
 
-# Monsters Ultimate Pack 02 - Don't commit
-Assets/Monsters\ Ultimate\ Pack\ 02\ Cute\ Series/
+# Monsters Ultimate Pack 02 Cute Series
+/Assets/Monsters\ Ultimate\ Pack\ 02\ Cute\ Series/
 Assets/Monsters\ Ultimate\ Pack\ 02\ Cute\ Series.meta
 
-# TopDownEngine Tutorial Info - Don't commit
-Assets/TutorialInfo/
+# TopDownEngine Tutorial Info & Demos
+/Assets/TutorialInfo/
 Assets/TutorialInfo.meta
 
-# Third-party stub files (keep locally, don't commit)
-Assets/Tiny\ Walnut\ Games.meta
-Assets/Readme.asset
-Assets/Readme.asset.meta
+# Asset Store package files (EULA compliance)
+*.unitypackage
+/Assets/AssetStoreTools/
+/Assets/Plugins/*/
+/Assets/ThirdParty/
 
 # ============================================================================
-# Unity Generated & Build Artifacts
+# UNITY EDITOR & BUILD ARTIFACTS (ALWAYS IGNORE)
 # ============================================================================
 /Library/
 /Temp/
 /Builds/
 /Logs/
 /obj/
+/UserSettings/
+*.log
 
 # ============================================================================
-# Project Configuration (environment-specific, don't commit)
+# IDE & DEVELOPMENT TOOLS (ENVIRONMENT-SPECIFIC)
 # ============================================================================
-ProjectSettings/
-# EXCEPT: Keep these for dependency tracking
-!Packages/manifest.json
-!Packages/packages-lock.json
-Packages/
+# Visual Studio / Rider
+.vs/
+.vscode/
+*.sln
+*.csproj
+*.csproj.user
+.idea/
+*.iml
+*.iws
+*.ipr
+*.iml
+
+# OS-specific
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*.swo
+*~
+
+# ============================================================================
+# PROJECT SETTINGS (ENVIRONMENT-SPECIFIC - EXCEPT MANIFESTS)
+# ============================================================================
+/ProjectSettings/
+# BUT KEEP THESE FOR DEPENDENCY TRACKING:
+!/Packages/manifest.json
+!/Packages/packages-lock.json
+# Build preferences (user-specific)
+/UserSettings/EditorUserSettings.asset
+
+# ============================================================================
+# PACKAGE CACHE (REGENERATED)
+# ============================================================================
+/Packages/
+!/Packages/manifest.json
+!/Packages/packages-lock.json
 
 # ============================================================================
 # IDE & Editor Config (DO NOT COMMIT)

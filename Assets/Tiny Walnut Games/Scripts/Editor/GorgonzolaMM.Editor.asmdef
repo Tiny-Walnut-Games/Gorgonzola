@@ -1,0 +1,27 @@
+{
+    "name": "GorgonzolaMM.Editor",
+    "rootNamespace": "GorgonzolaMM.Editor",
+    "references": [
+        "GUID:02650bbac8118a04f9180ab423fe60c4",
+        "GUID:8f27f7a0f8da9854cb7c86f15d58fe82",
+        "GUID:fea435ffc6350b34dbb9b9aeba0acc3d",
+      "Unity.Collections"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [
+        {
+            "name": "com.unity.cinemachine",
+            "expression": "3.0.0",
+            "define": "MM_CINEMACHINE3"
+        }
+    ],
+    "noEngineReferences": false
+}
