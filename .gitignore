@@ -1,37 +1,103 @@
 # Gorgonzola Game Jam - Git Ignore (Unity 6.2+)
+# NOTE: NO LFS USED. This repo is native Git only.
+# EULA PROTECTION: Third-party assets are NOT committed to avoid licensing breaches.
+# Users must source these locally from their own purchases.
 
-# Unity Generated
+# ============================================================================
+# THIRD-PARTY ASSET PACKS (DO NOT COMMIT - EULA PROTECTED)
+# ============================================================================
+# TopDown Engine Framework (v4.4) - Don't commit
+Assets/TopDownEngine/
+Assets/TopDownEngine.meta
+
+# PolygonDungeon Assets - Don't commit
+Assets/PolygonDungeon/
+Assets/PolygonDungeon.meta
+
+# Suriyun Character Assets - Don't commit
+Assets/Suriyun/
+Assets/Suriyun.meta
+
+# Monsters Ultimate Pack 02 - Don't commit
+Assets/Monsters\ Ultimate\ Pack\ 02\ Cute\ Series/
+Assets/Monsters\ Ultimate\ Pack\ 02\ Cute\ Series.meta
+
+# TopDownEngine Tutorial Info - Don't commit
+Assets/TutorialInfo/
+Assets/TutorialInfo.meta
+
+# Third-party stub files (keep locally, don't commit)
+Assets/Tiny\ Walnut\ Games.meta
+Assets/Readme.asset
+Assets/Readme.asset.meta
+
+# ============================================================================
+# Unity Generated & Build Artifacts
+# ============================================================================
 /Library/
 /Temp/
 /Builds/
 /Logs/
 /obj/
-*.csproj
-*.sln
 
-# Rider / Visual Studio
+# ============================================================================
+# Project Configuration (environment-specific, don't commit)
+# ============================================================================
+ProjectSettings/
+# EXCEPT: Keep these for dependency tracking
+!Packages/manifest.json
+!Packages/packages-lock.json
+Packages/
+
+# ============================================================================
+# IDE & Editor Config (DO NOT COMMIT)
+# ============================================================================
 .idea/
 .vs/
 .vscode/
 *.swp
 *.swo
 *~
-.DS_Store
-
-# User-specific
 UserSettings/
 
-# Build Artifacts
+# ============================================================================
+# Generated Solution & Project Files (DO NOT COMMIT)
+# ============================================================================
+*.csproj
+*.sln
+
+# ============================================================================
+# Build Outputs
+# ============================================================================
 *.exe
 *.dll
 *.pdb
 *.apk
 *.ipa
 *.app
+*.unitypackage
 
-# Cache
+# ============================================================================
+# Cache & Temporary
+# ============================================================================
 .cache/
-
-# OS
 Thumbs.db
 .DS_Store
+
+# ============================================================================
+# LFS Protection (NO LFS IN THIS REPO)
+# ============================================================================
+.gitattributes
+.lfsconfig
+*.lfs
+.git/hooks/post-checkout.lfs
+.git/hooks/post-merge.lfs
+.git/hooks/pre-push.lfs
+
+# ============================================================================
+# WHITELIST: Only these user-generated folders are committed
+# ============================================================================
+# Assets/Scripts/  (user code - TRACKED)
+# Assets/Prefabs/  (user prefabs - TRACKED)
+# Assets/Scenes/   (user game scenes - TRACKED)
+# Assets/Audio/    (user audio - TRACKED)
