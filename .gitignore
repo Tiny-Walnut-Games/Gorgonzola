@@ -1,0 +1,37 @@
+# Gorgonzola Game Jam - Git Ignore (Unity 6.2+)
+
+# Unity Generated
+/Library/
+/Temp/
+/Builds/
+/Logs/
+/obj/
+*.csproj
+*.sln
+
+# Rider / Visual Studio
+.idea/
+.vs/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# User-specific
+UserSettings/
+
+# Build Artifacts
+*.exe
+*.dll
+*.pdb
+*.apk
+*.ipa
+*.app
+
+# Cache
+.cache/
+
+# OS
+Thumbs.db
+.DS_Store
