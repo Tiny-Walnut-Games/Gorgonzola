@@ -10,7 +10,7 @@ namespace GorgonzolaMM
     /// </summary>
     public class TurnManager : MonoBehaviour
     {
-        public static TurnManager Instance { get; private set; }
+        public static TurnManager Instance { get; set; }
 
         public enum TurnPhase
         {
@@ -33,7 +33,23 @@ namespace GorgonzolaMM
 
         public TurnPhase CurrentPhase => currentPhase;
         public int TurnCount => turnCount;
-        public event Action<TurnPhase> OnPhaseChanged;
+        
+        /// <summary>
+        /// Gets or sets the turn duration (delay between phase transitions).
+        /// Used mainly for testing to speed up phase transitions.
+        /// </summary>
+        public float TurnDuration
+        {
+            get => turnDuration;
+            set => turnDuration = value;
+        }
+        
+        private event Action<TurnPhase> _onPhaseChanged;
+        public event Action<TurnPhase> OnPhaseChanged
+        {
+            add => _onPhaseChanged += value;
+            remove => _onPhaseChanged -= value;
+        }
 
         private void Awake()
         {
@@ -50,6 +66,14 @@ namespace GorgonzolaMM
         {
             if (verbose)
                 Debug.Log("[TurnManager] Ready. Awaiting first player input...");
+        }
+
+        private void OnDestroy()
+        {
+            if (Instance == this)
+            {
+                Instance = null;
+            }
         }
 
         private void Update()
@@ -128,7 +152,7 @@ namespace GorgonzolaMM
             if (verbose)
                 Debug.Log($"[TurnManager] Phase → {nextPhase} (Turn {turnCount})");
 
-            OnPhaseChanged?.Invoke(nextPhase);
+            _onPhaseChanged?.Invoke(nextPhase);
 
             // Auto-transition logic for non-player phases
             switch (nextPhase)

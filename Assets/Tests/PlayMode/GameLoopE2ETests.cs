@@ -32,6 +32,9 @@ namespace GorgonzolaMM.Tests
             turnManagerGO = new GameObject("TurnManager");
             turnManager = turnManagerGO.AddComponent<TurnManager>();
             
+            // Configure for fast test execution
+            turnManager.TurnDuration = TEST_TURN_DURATION;
+            
             // Create test entities
             playerGO = new GameObject("TestPlayer");
             enemyGO = new GameObject("TestEnemy");
@@ -41,6 +44,18 @@ namespace GorgonzolaMM.Tests
         [TearDown]
         public void Teardown()
         {
+            if (turnManager != null)
+            {
+                turnManager.CancelInvoke();
+            }
+            
+            // Manually clear singleton instance before destroying
+            // to prevent the next test's TurnManager from being destroyed
+            if (TurnManager.Instance == turnManager)
+            {
+                TurnManager.Instance = null;
+            }
+            
             Object.Destroy(turnManagerGO);
             Object.Destroy(playerGO);
             Object.Destroy(enemyGO);

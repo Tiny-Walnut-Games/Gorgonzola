@@ -21,11 +21,26 @@ namespace GorgonzolaMM.Tests
         {
             turnManagerGO = new GameObject("TurnManager");
             turnManager = turnManagerGO.AddComponent<TurnManager>();
+            
+            // Configure for fast test execution (0.05s per phase)
+            turnManager.TurnDuration = 0.05f;
         }
 
         [TearDown]
         public void Teardown()
         {
+            if (turnManager != null)
+            {
+                turnManager.CancelInvoke();
+            }
+            
+            // Manually clear singleton instance before destroying
+            // to prevent the next test's TurnManager from being destroyed
+            if (TurnManager.Instance == turnManager)
+            {
+                TurnManager.Instance = null;
+            }
+            
             Object.Destroy(turnManagerGO);
         }
 
@@ -113,9 +128,10 @@ namespace GorgonzolaMM.Tests
             
             // Move to minion phase
             turnManager.ConfirmPlayerAction();
-            yield return new WaitForSeconds(0.15f); // Wait past enemy phase
+            // Wait for full phase cycle: PlayerTurn→(0.05s)→EnemyTurn→(0.05s)→MinionTurn→(0.05s)→Resolution
+            yield return new WaitForSeconds(0.3f);
             
-            // By here, should be in or past minion phase
+            // By here, should have cycled through minion phase
             // In a full integration, minions would have been updated
             Assert.Pass();
             Debug.Log("[Test] ✓ Minion phase executes without exceptions");

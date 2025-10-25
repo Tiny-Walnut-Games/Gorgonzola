@@ -139,3 +139,11 @@ Thumbs.db
 # Assets/Audio/    (user audio - TRACKED)
 /node_modules/
 /Gorgonzola.sln.DotSettings.user
+
+# Playwright
+node_modules/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/

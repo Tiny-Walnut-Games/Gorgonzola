@@ -15,12 +15,12 @@ namespace GorgonzolaMM.Editor
     /// </summary>
     public class GorgonzolaSceneSetup
     {
-        private const string SCENE_TEMPLATE_PATH = "Assets/Scenes/ArenaTemplate_{0}.unity";
+        private const string SceneTemplatePath = "Assets/Scenes/ArenaTemplate_{0}.unity";
         
         // More Mountains prefab paths (Common resources)
-        private const string MM_UI_CAMERA_PREFAB = "Assets/TopDownEngine/Common/Prefabs/GUI/UICamera.prefab";
-        private const string MM_HEALTH_BAR_PREFAB = "Assets/TopDownEngine/Common/Prefabs/GUI/HealthBar.prefab";
-        private const string MM_FADER_PREFAB = "Assets/TopDownEngine/Common/Prefabs/GUI/MMFaderRound.prefab";
+        private const string MmUICameraPrefab = "Assets/TopDownEngine/Common/Prefabs/GUI/UICamera.prefab";
+        private const string MmHealthBarPrefab = "Assets/TopDownEngine/Common/Prefabs/GUI/HealthBar.prefab";
+        private const string MmFaderPrefab = "Assets/TopDownEngine/Common/Prefabs/GUI/MMFaderRound.prefab";
 
         [MenuItem("Gorgonzola/Scenes/Create New Arena")]
         public static void CreateNewArenaScene()
@@ -76,16 +76,16 @@ namespace GorgonzolaMM.Editor
             var root = scene.GetRootGameObjects().Length > 0 ? scene.GetRootGameObjects()[0].transform : null;
 
             // Create managers hierarchy
-            var managersGO = CreateOrGetGameObject("--- Managers ---", root);
-            SetupGameManagers(managersGO.transform);
+            var managersGo = CreateOrGetGameObject("--- Managers ---", root);
+            SetupGameManagers(managersGo.transform);
 
             // Create scene hierarchy
-            var sceneGO = CreateOrGetGameObject("--- Scene ---", root);
-            SetupSceneLayout(sceneGO.transform);
+            var sceneGo = CreateOrGetGameObject("--- Scene ---", root);
+            SetupSceneLayout(sceneGo.transform);
 
             // Create UI hierarchy
-            var uiGO = CreateOrGetGameObject("--- UI ---", root);
-            SetupUIHierarchy(uiGO.transform);
+            var uiGo = CreateOrGetGameObject("--- UI ---", root);
+            SetupUIHierarchy(uiGo.transform);
 
             Debug.Log("[GorgonzolaSceneSetup] Arena scene fully configured with MM TopDown Engine infrastructure.");
         }
@@ -96,23 +96,23 @@ namespace GorgonzolaMM.Editor
         private static void SetupGameManagers(Transform parentTransform)
         {
             // TurnManager (already exists in Scripts, but ensure it's in the scene)
-            var turnManagerGO = CreateOrGetGameObject("TurnManager", parentTransform);
-            var turnManager = turnManagerGO.GetComponent<TurnManager>();
+            var turnManagerGo = CreateOrGetGameObject("TurnManager", parentTransform);
+            var turnManager = turnManagerGo.GetComponent<TurnManager>();
             if (turnManager == null)
             {
-                turnManager = turnManagerGO.AddComponent<TurnManager>();
+                turnManager = turnManagerGo.AddComponent<TurnManager>();
             }
 
             // Game Manager (generic game flow)
-            var gameManagerGO = CreateOrGetGameObject("GameManager", parentTransform);
-            gameManagerGO.AddComponent<AudioListener>();
+            var gameManagerGo = CreateOrGetGameObject("GameManager", parentTransform);
+            gameManagerGo.AddComponent<AudioListener>();
             
             // Inventory Manager (placeholder for InventoryEngine integration)
-            var inventoryGO = CreateOrGetGameObject("InventoryManager", parentTransform);
+            var inventoryGo = CreateOrGetGameObject("InventoryManager", parentTransform);
             // TODO: Integrate with InventoryEngine when available
 
             // UI Manager (manages pause, menus, etc.)
-            var uiManagerGO = CreateOrGetGameObject("UIManager", parentTransform);
+            var uiManagerGo = CreateOrGetGameObject("UIManager", parentTransform);
             
             Debug.Log("[GorgonzolaSceneSetup] Managers created: TurnManager, GameManager, InventoryManager, UIManager");
         }
@@ -123,42 +123,42 @@ namespace GorgonzolaMM.Editor
         private static void SetupSceneLayout(Transform parentTransform)
         {
             // Ground plane
-            var groundGO = CreateOrGetGameObject("Ground", parentTransform);
-            var meshFilter = groundGO.GetComponent<MeshFilter>();
-            var meshRenderer = groundGO.GetComponent<MeshRenderer>();
-            var collider = groundGO.GetComponent<BoxCollider>();
+            var groundGo = CreateOrGetGameObject("Ground", parentTransform);
+            var meshFilter = groundGo.GetComponent<MeshFilter>();
+            var meshRenderer = groundGo.GetComponent<MeshRenderer>();
+            var collider = groundGo.GetComponent<BoxCollider>();
 
             if (meshFilter == null)
             {
-                meshFilter = groundGO.AddComponent<MeshFilter>();
+                meshFilter = groundGo.AddComponent<MeshFilter>();
                 meshFilter.mesh = Resources.GetBuiltinResource<Mesh>("Cube.fbx");
             }
 
             if (meshRenderer == null)
             {
-                meshRenderer = groundGO.AddComponent<MeshRenderer>();
+                meshRenderer = groundGo.AddComponent<MeshRenderer>();
                 meshRenderer.material = new Material(Shader.Find("Universal Render Pipeline/Lit"));
             }
 
             if (collider == null)
             {
-                collider = groundGO.AddComponent<BoxCollider>();
+                collider = groundGo.AddComponent<BoxCollider>();
             }
 
             // Scale to be a flat plane (50x50x0.1)
-            groundGO.transform.localScale = new Vector3(50, 0.1f, 50);
-            groundGO.transform.localPosition = Vector3.zero;
-            groundGO.layer = LayerMask.NameToLayer("Default");
+            groundGo.transform.localScale = new Vector3(50, 0.1f, 50);
+            groundGo.transform.localPosition = Vector3.zero;
+            groundGo.layer = LayerMask.NameToLayer("Default");
 
             // Spawn points container
-            var spawnPointsGO = CreateOrGetGameObject("SpawnPoints", parentTransform);
+            var spawnPointsGo = CreateOrGetGameObject("SpawnPoints", parentTransform);
             
             // Player spawn
-            var playerSpawnGO = CreateOrGetGameObject("PlayerSpawn", spawnPointsGO.transform);
-            playerSpawnGO.transform.localPosition = Vector3.zero;
+            var playerSpawnGo = CreateOrGetGameObject("PlayerSpawn", spawnPointsGo.transform);
+            playerSpawnGo.transform.localPosition = Vector3.zero;
             
             // Enemy spawns (example: 4 corners)
-            var enemySpawnsGO = CreateOrGetGameObject("EnemySpawns", spawnPointsGO.transform);
+            var enemySpawnsGo = CreateOrGetGameObject("EnemySpawns", spawnPointsGo.transform);
             Vector3[] enemySpawnPositions = new[]
             {
                 new Vector3(10, 0.5f, 10),
@@ -169,20 +169,20 @@ namespace GorgonzolaMM.Editor
 
             for (int i = 0; i < enemySpawnPositions.Length; i++)
             {
-                var spawnGO = CreateOrGetGameObject($"EnemySpawn_{i}", enemySpawnsGO.transform);
-                spawnGO.transform.localPosition = enemySpawnPositions[i];
+                var spawnGo = CreateOrGetGameObject($"EnemySpawn_{i}", enemySpawnsGo.transform);
+                spawnGo.transform.localPosition = enemySpawnPositions[i];
             }
 
             // Lighting
-            var lightGO = CreateOrGetGameObject("Directional Light", parentTransform);
-            var light = lightGO.GetComponent<Light>();
+            var lightGo = CreateOrGetGameObject("Directional Light", parentTransform);
+            var light = lightGo.GetComponent<Light>();
             if (light == null)
             {
-                light = lightGO.AddComponent<Light>();
+                light = lightGo.AddComponent<Light>();
                 light.type = LightType.Directional;
                 light.intensity = 1.2f;
             }
-            lightGO.transform.rotation = Quaternion.Euler(45, 45, 0);
+            lightGo.transform.rotation = Quaternion.Euler(45, 45, 0);
 
             Debug.Log("[GorgonzolaSceneSetup] Scene layout created: Ground plane, spawn points, lighting");
         }
@@ -194,45 +194,45 @@ namespace GorgonzolaMM.Editor
         private static void SetupUIHierarchy(Transform parentTransform)
         {
             // Main Canvas (for world-space HUD elements)
-            var canvasGO = CreateOrGetGameObject("MainCanvas", parentTransform);
-            var canvas = canvasGO.GetComponent<Canvas>();
+            var canvasGo = CreateOrGetGameObject("MainCanvas", parentTransform);
+            var canvas = canvasGo.GetComponent<Canvas>();
             if (canvas == null)
             {
-                canvas = canvasGO.AddComponent<Canvas>();
+                canvas = canvasGo.AddComponent<Canvas>();
                 canvas.renderMode = RenderMode.ScreenSpaceOverlay;
-                canvasGO.AddComponent<GraphicRaycaster>();
+                canvasGo.AddComponent<GraphicRaycaster>();
             }
 
-            var canvasScaler = canvasGO.GetComponent<CanvasScaler>();
+            var canvasScaler = canvasGo.GetComponent<CanvasScaler>();
             if (canvasScaler == null)
             {
-                canvasScaler = canvasGO.AddComponent<CanvasScaler>();
+                canvasScaler = canvasGo.AddComponent<CanvasScaler>();
                 canvasScaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
             }
 
             // HUD Container
-            var hudGO = CreateOrGetGameObject("HUD", canvasGO.transform);
-            SetupHUD(hudGO.transform);
+            var hudGo = CreateOrGetGameObject("HUD", canvasGo.transform);
+            SetupHUD(hudGo.transform);
 
             // Pause Menu (hidden by default)
-            var pauseMenuGO = CreateOrGetGameObject("PauseMenu", canvasGO.transform);
-            pauseMenuGO.SetActive(false);
-            SetupPauseMenu(pauseMenuGO.transform);
+            var pauseMenuGo = CreateOrGetGameObject("PauseMenu", canvasGo.transform);
+            pauseMenuGo.SetActive(false);
+            SetupPauseMenu(pauseMenuGo.transform);
 
             // Inventory Panel (hidden by default)
-            var inventoryGO = CreateOrGetGameObject("InventoryPanel", canvasGO.transform);
-            inventoryGO.SetActive(false);
-            SetupInventoryPanel(inventoryGO.transform);
+            var inventoryGo = CreateOrGetGameObject("InventoryPanel", canvasGo.transform);
+            inventoryGo.SetActive(false);
+            SetupInventoryPanel(inventoryGo.transform);
 
             // Floating damage numbers / notifications (parent for popups)
-            var notificationsGO = CreateOrGetGameObject("Notifications", canvasGO.transform);
+            var notificationsGo = CreateOrGetGameObject("Notifications", canvasGo.transform);
 
             // UI Camera (if not already in scene)
-            var uiCameraGO = CreateOrGetGameObject("UICamera", parentTransform);
-            var uiCam = uiCameraGO.GetComponent<Camera>();
+            var uiCameraGo = CreateOrGetGameObject("UICamera", parentTransform);
+            var uiCam = uiCameraGo.GetComponent<Camera>();
             if (uiCam == null)
             {
-                uiCam = uiCameraGO.AddComponent<Camera>();
+                uiCam = uiCameraGo.AddComponent<Camera>();
                 uiCam.clearFlags = CameraClearFlags.Nothing;
                 uiCam.cullingMask = LayerMask.GetMask("UI");
                 uiCam.depth = 1;
@@ -247,11 +247,11 @@ namespace GorgonzolaMM.Editor
         private static void SetupHUD(Transform parentTransform)
         {
             // Health Bar
-            var healthBarGO = CreateOrGetGameObject("HealthBar", parentTransform);
-            var healthBarRectTransform = healthBarGO.GetComponent<RectTransform>();
+            var healthBarGo = CreateOrGetGameObject("HealthBar", parentTransform);
+            var healthBarRectTransform = healthBarGo.GetComponent<RectTransform>();
             if (healthBarRectTransform == null)
             {
-                healthBarRectTransform = healthBarGO.AddComponent<RectTransform>();
+                healthBarRectTransform = healthBarGo.AddComponent<RectTransform>();
             }
             healthBarRectTransform.anchorMin = Vector2.zero;
             healthBarRectTransform.anchorMax = new Vector2(0, 1);
@@ -259,25 +259,25 @@ namespace GorgonzolaMM.Editor
             healthBarRectTransform.offsetMax = new Vector2(250, -10);
 
             // Add Image for background
-            var healthBarImage = healthBarGO.GetComponent<Image>();
+            var healthBarImage = healthBarGo.GetComponent<Image>();
             if (healthBarImage == null)
             {
-                healthBarImage = healthBarGO.AddComponent<Image>();
+                healthBarImage = healthBarGo.AddComponent<Image>();
                 healthBarImage.color = new Color(0.2f, 0.2f, 0.2f, 0.8f);
             }
 
             // Health fill bar
-            var fillGO = CreateOrGetGameObject("Fill", healthBarGO.transform);
-            var fillImage = fillGO.GetComponent<Image>();
+            var fillGo = CreateOrGetGameObject("Fill", healthBarGo.transform);
+            var fillImage = fillGo.GetComponent<Image>();
             if (fillImage == null)
             {
-                fillImage = fillGO.AddComponent<Image>();
+                fillImage = fillGo.AddComponent<Image>();
                 fillImage.color = new Color(0.2f, 0.8f, 0.2f, 1);
             }
-            var fillRectTransform = fillGO.GetComponent<RectTransform>();
+            var fillRectTransform = fillGo.GetComponent<RectTransform>();
             if (fillRectTransform == null)
             {
-                fillRectTransform = fillGO.AddComponent<RectTransform>();
+                fillRectTransform = fillGo.AddComponent<RectTransform>();
             }
             fillRectTransform.anchorMin = Vector2.zero;
             fillRectTransform.anchorMax = Vector2.one;
@@ -285,21 +285,21 @@ namespace GorgonzolaMM.Editor
             fillRectTransform.offsetMax = Vector2.zero;
 
             // Turn Counter
-            var turnCounterGO = CreateOrGetGameObject("TurnCounter", parentTransform);
-            var turnCounterText = turnCounterGO.GetComponent<Text>();
+            var turnCounterGo = CreateOrGetGameObject("TurnCounter", parentTransform);
+            var turnCounterText = turnCounterGo.GetComponent<Text>();
             if (turnCounterText == null)
             {
-                turnCounterText = turnCounterGO.AddComponent<Text>();
+                turnCounterText = turnCounterGo.AddComponent<Text>();
                 turnCounterText.font = Resources.GetBuiltinResource<Font>("Arial.ttf");
                 turnCounterText.text = "Turn: 1";
                 turnCounterText.alignment = TextAnchor.UpperRight;
                 turnCounterText.color = Color.white;
                 turnCounterText.fontSize = 30;
             }
-            var turnRectTransform = turnCounterGO.GetComponent<RectTransform>();
+            var turnRectTransform = turnCounterGo.GetComponent<RectTransform>();
             if (turnRectTransform == null)
             {
-                turnRectTransform = turnCounterGO.AddComponent<RectTransform>();
+                turnRectTransform = turnCounterGo.AddComponent<RectTransform>();
             }
             turnRectTransform.anchorMin = new Vector2(1, 1);
             turnRectTransform.anchorMax = Vector2.one;
@@ -307,21 +307,21 @@ namespace GorgonzolaMM.Editor
             turnRectTransform.offsetMax = Vector2.zero;
 
             // Ammo Counter
-            var ammoGO = CreateOrGetGameObject("AmmoCounter", parentTransform);
-            var ammoText = ammoGO.GetComponent<Text>();
+            var ammoGo = CreateOrGetGameObject("AmmoCounter", parentTransform);
+            var ammoText = ammoGo.GetComponent<Text>();
             if (ammoText == null)
             {
-                ammoText = ammoGO.AddComponent<Text>();
+                ammoText = ammoGo.AddComponent<Text>();
                 ammoText.font = Resources.GetBuiltinResource<Font>("Arial.ttf");
                 ammoText.text = "Ammo: 30/90";
                 ammoText.alignment = TextAnchor.LowerRight;
                 ammoText.color = Color.white;
                 ammoText.fontSize = 24;
             }
-            var ammoRectTransform = ammoGO.GetComponent<RectTransform>();
+            var ammoRectTransform = ammoGo.GetComponent<RectTransform>();
             if (ammoRectTransform == null)
             {
-                ammoRectTransform = ammoGO.AddComponent<RectTransform>();
+                ammoRectTransform = ammoGo.AddComponent<RectTransform>();
             }
             ammoRectTransform.anchorMin = new Vector2(1, 0);
             ammoRectTransform.anchorMax = new Vector2(1, 0);
@@ -337,17 +337,17 @@ namespace GorgonzolaMM.Editor
         private static void SetupPauseMenu(Transform parentTransform)
         {
             // Background panel
-            var bgGO = CreateOrGetGameObject("Background", parentTransform);
-            var bgImage = bgGO.GetComponent<Image>();
+            var bgGo = CreateOrGetGameObject("Background", parentTransform);
+            var bgImage = bgGo.GetComponent<Image>();
             if (bgImage == null)
             {
-                bgImage = bgGO.AddComponent<Image>();
+                bgImage = bgGo.AddComponent<Image>();
                 bgImage.color = new Color(0, 0, 0, 0.7f);
             }
-            var bgRectTransform = bgGO.GetComponent<RectTransform>();
+            var bgRectTransform = bgGo.GetComponent<RectTransform>();
             if (bgRectTransform == null)
             {
-                bgRectTransform = bgGO.AddComponent<RectTransform>();
+                bgRectTransform = bgGo.AddComponent<RectTransform>();
             }
             bgRectTransform.anchorMin = Vector2.zero;
             bgRectTransform.anchorMax = Vector2.one;
@@ -355,17 +355,17 @@ namespace GorgonzolaMM.Editor
             bgRectTransform.offsetMax = Vector2.zero;
 
             // Menu panel
-            var menuGO = CreateOrGetGameObject("MenuPanel", parentTransform);
-            var menuImage = menuGO.GetComponent<Image>();
+            var menuGo = CreateOrGetGameObject("MenuPanel", parentTransform);
+            var menuImage = menuGo.GetComponent<Image>();
             if (menuImage == null)
             {
-                menuImage = menuGO.AddComponent<Image>();
+                menuImage = menuGo.AddComponent<Image>();
                 menuImage.color = new Color(0.1f, 0.1f, 0.1f, 0.95f);
             }
-            var menuRectTransform = menuGO.GetComponent<RectTransform>();
+            var menuRectTransform = menuGo.GetComponent<RectTransform>();
             if (menuRectTransform == null)
             {
-                menuRectTransform = menuGO.AddComponent<RectTransform>();
+                menuRectTransform = menuGo.AddComponent<RectTransform>();
             }
             menuRectTransform.anchorMin = new Vector2(0.5f, 0.5f);
             menuRectTransform.anchorMax = new Vector2(0.5f, 0.5f);
@@ -373,21 +373,21 @@ namespace GorgonzolaMM.Editor
             menuRectTransform.anchoredPosition = Vector2.zero;
 
             // Title
-            var titleGO = CreateOrGetGameObject("Title", menuGO.transform);
-            var titleText = titleGO.GetComponent<Text>();
+            var titleGo = CreateOrGetGameObject("Title", menuGo.transform);
+            var titleText = titleGo.GetComponent<Text>();
             if (titleText == null)
             {
-                titleText = titleGO.AddComponent<Text>();
+                titleText = titleGo.AddComponent<Text>();
                 titleText.font = Resources.GetBuiltinResource<Font>("Arial.ttf");
                 titleText.text = "PAUSED";
                 titleText.alignment = TextAnchor.MiddleCenter;
                 titleText.color = Color.white;
                 titleText.fontSize = 40;
             }
-            var titleRectTransform = titleGO.GetComponent<RectTransform>();
+            var titleRectTransform = titleGo.GetComponent<RectTransform>();
             if (titleRectTransform == null)
             {
-                titleRectTransform = titleGO.AddComponent<RectTransform>();
+                titleRectTransform = titleGo.AddComponent<RectTransform>();
             }
             titleRectTransform.anchorMin = Vector2.one * 0.5f;
             titleRectTransform.anchorMax = Vector2.one * 0.5f;
@@ -395,13 +395,13 @@ namespace GorgonzolaMM.Editor
             titleRectTransform.anchoredPosition = new Vector2(0, 80);
 
             // Resume button
-            CreateMenuButton(menuGO.transform, "Resume", new Vector2(0, 20));
+            CreateMenuButton(menuGo.transform, "Resume", new Vector2(0, 20));
             
             // Settings button
-            CreateMenuButton(menuGO.transform, "Settings", new Vector2(0, -30));
+            CreateMenuButton(menuGo.transform, "Settings", new Vector2(0, -30));
             
             // Main Menu button
-            CreateMenuButton(menuGO.transform, "Main Menu", new Vector2(0, -80));
+            CreateMenuButton(menuGo.transform, "Main Menu", new Vector2(0, -80));
 
             Debug.Log("[GorgonzolaSceneSetup] Pause Menu UI created");
         }
@@ -412,17 +412,17 @@ namespace GorgonzolaMM.Editor
         private static void SetupInventoryPanel(Transform parentTransform)
         {
             // Background
-            var bgGO = CreateOrGetGameObject("Background", parentTransform);
-            var bgImage = bgGO.GetComponent<Image>();
+            var bgGo = CreateOrGetGameObject("Background", parentTransform);
+            var bgImage = bgGo.GetComponent<Image>();
             if (bgImage == null)
             {
-                bgImage = bgGO.AddComponent<Image>();
+                bgImage = bgGo.AddComponent<Image>();
                 bgImage.color = new Color(0.1f, 0.1f, 0.1f, 0.95f);
             }
-            var bgRectTransform = bgGO.GetComponent<RectTransform>();
+            var bgRectTransform = bgGo.GetComponent<RectTransform>();
             if (bgRectTransform == null)
             {
-                bgRectTransform = bgGO.AddComponent<RectTransform>();
+                bgRectTransform = bgGo.AddComponent<RectTransform>();
             }
             bgRectTransform.anchorMin = Vector2.zero;
             bgRectTransform.anchorMax = Vector2.one;
@@ -430,21 +430,21 @@ namespace GorgonzolaMM.Editor
             bgRectTransform.offsetMax = Vector2.zero;
 
             // Title
-            var titleGO = CreateOrGetGameObject("Title", parentTransform);
-            var titleText = titleGO.GetComponent<Text>();
+            var titleGo = CreateOrGetGameObject("Title", parentTransform);
+            var titleText = titleGo.GetComponent<Text>();
             if (titleText == null)
             {
-                titleText = titleGO.AddComponent<Text>();
+                titleText = titleGo.AddComponent<Text>();
                 titleText.font = Resources.GetBuiltinResource<Font>("Arial.ttf");
                 titleText.text = "Inventory";
                 titleText.alignment = TextAnchor.UpperLeft;
                 titleText.color = Color.white;
                 titleText.fontSize = 40;
             }
-            var titleRectTransform = titleGO.GetComponent<RectTransform>();
+            var titleRectTransform = titleGo.GetComponent<RectTransform>();
             if (titleRectTransform == null)
             {
-                titleRectTransform = titleGO.AddComponent<RectTransform>();
+                titleRectTransform = titleGo.AddComponent<RectTransform>();
             }
             titleRectTransform.anchorMin = Vector2.zero;
             titleRectTransform.anchorMax = Vector2.one;
@@ -452,8 +452,8 @@ namespace GorgonzolaMM.Editor
             titleRectTransform.offsetMax = new Vector2(-20, -20);
 
             // Item grid (placeholder)
-            var gridGO = CreateOrGetGameObject("ItemGrid", parentTransform);
-            gridGO.AddComponent<GridLayoutGroup>();
+            var gridGo = CreateOrGetGameObject("ItemGrid", parentTransform);
+            gridGo.AddComponent<GridLayoutGroup>();
 
             Debug.Log("[GorgonzolaSceneSetup] Inventory Panel UI created");
         }
@@ -488,24 +488,24 @@ namespace GorgonzolaMM.Editor
         /// </summary>
         private static void CreateMenuButton(Transform parent, string buttonText, Vector2 position)
         {
-            var buttonGO = CreateOrGetGameObject($"Button_{buttonText}", parent);
-            var buttonImage = buttonGO.GetComponent<Image>();
+            var buttonGo = CreateOrGetGameObject($"Button_{buttonText}", parent);
+            var buttonImage = buttonGo.GetComponent<Image>();
             if (buttonImage == null)
             {
-                buttonImage = buttonGO.AddComponent<Image>();
+                buttonImage = buttonGo.AddComponent<Image>();
                 buttonImage.color = new Color(0.3f, 0.3f, 0.3f, 1);
             }
 
-            var buttonComponent = buttonGO.GetComponent<Button>();
+            var buttonComponent = buttonGo.GetComponent<Button>();
             if (buttonComponent == null)
             {
-                buttonComponent = buttonGO.AddComponent<Button>();
+                buttonComponent = buttonGo.AddComponent<Button>();
             }
 
-            var rectTransform = buttonGO.GetComponent<RectTransform>();
+            var rectTransform = buttonGo.GetComponent<RectTransform>();
             if (rectTransform == null)
             {
-                rectTransform = buttonGO.AddComponent<RectTransform>();
+                rectTransform = buttonGo.AddComponent<RectTransform>();
             }
             rectTransform.anchorMin = Vector2.one * 0.5f;
             rectTransform.anchorMax = Vector2.one * 0.5f;
@@ -513,21 +513,21 @@ namespace GorgonzolaMM.Editor
             rectTransform.anchoredPosition = position;
 
             // Text
-            var textGO = CreateOrGetGameObject("Text", buttonGO.transform);
-            var text = textGO.GetComponent<Text>();
+            var textGo = CreateOrGetGameObject("Text", buttonGo.transform);
+            var text = textGo.GetComponent<Text>();
             if (text == null)
             {
-                text = textGO.AddComponent<Text>();
+                text = textGo.AddComponent<Text>();
                 text.font = Resources.GetBuiltinResource<Font>("Arial.ttf");
                 text.text = buttonText;
                 text.alignment = TextAnchor.MiddleCenter;
                 text.color = Color.white;
                 text.fontSize = 20;
             }
-            var textRectTransform = textGO.GetComponent<RectTransform>();
+            var textRectTransform = textGo.GetComponent<RectTransform>();
             if (textRectTransform == null)
             {
-                textRectTransform = textGO.AddComponent<RectTransform>();
+                textRectTransform = textGo.AddComponent<RectTransform>();
             }
             textRectTransform.anchorMin = Vector2.zero;
             textRectTransform.anchorMax = Vector2.one;

@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="34" result="Failed(Child)" total="34" passed="30" failed="4" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2025-10-25 01:43:19Z" end-time="2025-10-25 01:43:19Z" duration="0.6691438">
+  <test-suite type="TestSuite" id="1045" name="Gorgonzola" fullname="Gorgonzola" runstate="Runnable" testcasecount="34" result="Failed" site="Child" start-time="2025-10-25 01:43:19Z" end-time="2025-10-25 01:43:19Z" duration="0.669144" total="34" passed="30" failed="4" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="PlayMode" />
+    </properties>
+    <failure>
+      <message><![CDATA[One or more child tests had errors]]></message>
+    </failure>
+    <test-suite type="Assembly" id="1039" name="GorgonzolaMM.Tests.PlayMode.dll" fullname="E:/Tiny_Walnut_Games/Gorgonzola/Library/ScriptAssemblies/GorgonzolaMM.Tests.PlayMode.dll" runstate="Runnable" testcasecount="34" result="Failed" site="Child" start-time="2025-10-25 01:43:19Z" end-time="2025-10-25 01:43:19Z" duration="0.641103" total="34" passed="30" failed="4" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="14764" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="PlayMode" />
+        <property name="EditorOnly" value="False" />
+      </properties>
+      <failure>
+        <message><![CDATA[One or more child tests had errors]]></message>
+      </failure>
+      <test-suite type="TestSuite" id="1040" name="GorgonzolaMM" fullname="GorgonzolaMM" runstate="Runnable" testcasecount="34" result="Failed" site="Child" start-time="2025-10-25 01:43:19Z" end-time="2025-10-25 01:43:19Z" duration="0.632227" total="34" passed="30" failed="4" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        <test-suite type="TestSuite" id="1041" name="Tests" fullname="GorgonzolaMM.Tests" runstate="Runnable" testcasecount="34" result="Failed" site="Child" start-time="2025-10-25 01:43:19Z" end-time="2025-10-25 01:43:19Z" duration="0.621681" total="34" passed="30" failed="4" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <failure>
+            <message><![CDATA[One or more child tests had errors]]></message>
+          </failure>
+          <test-suite type="TestFixture" id="1001" name="AIBrainIntegrationTests" fullname="GorgonzolaMM.Tests.AIBrainIntegrationTests" classname="GorgonzolaMM.Tests.AIBrainIntegrationTests" runstate="Runnable" testcasecount="9" result="Failed" site="Child" start-time="2025-10-25 01:43:19Z" end-time="2025-10-25 01:43:19Z" duration="0.149868" total="9" passed="8" failed="1" inconclusive="0" skipped="0" asserts="0">
+            <properties>
+              <property name="Category" value="AI" />
+            </properties>
+            <failure>
+              <message><![CDATA[One or more child tests had errors]]></message>
+            </failure>
+            <test-case id="1002" name="AIBrain_EnemyRegistration_AddsToRegistry" fullname="GorgonzolaMM.Tests.AIBrainIntegrationTests.AIBrain_EnemyRegistration_AddsToRegistry" methodname="AIBrain_EnemyRegistration_AddsToRegistry" classname="GorgonzolaMM.Tests.AIBrainIntegrationTests" runstate="Runnable" seed="236516015" result="Passed" start-time="2025-10-25 01:43:19Z" end-time="2025-10-25 01:43:19Z" duration="0.022523" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <reason>
+                <message><![CDATA[]]></message>
+              </reason>
+            </test-case>
+            <test-case id="1003" name="AIBrain_EnemyRegistration_Multiple_BothRegistered" fullname="GorgonzolaMM.Tests.AIBrainIntegrationTests.AIBrain_EnemyRegistration_Multiple_BothRegistered" methodname="AIBrain_EnemyRegistration_Multiple_BothRegistered" classname="GorgonzolaMM.Tests.AIBrainIntegrationTests" runstate="Runnable" seed="817769548" result="Passed" start-time="2025-10-25 01:43:19Z" end-time="2025-10-25 01:43:19Z" duration="0.000804" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <reason>
+                <message><![CDATA[]]></message>
+              </reason>
+            </test-case>
+            <test-case id="1004" name="AIBrain_EnemyUnregistration_RemovesFromRegistry" fullname="GorgonzolaMM.Tests.AIBrainIntegrationTests.AIBrain_EnemyUnregistration_RemovesFromRegistry" methodname="AIBrain_EnemyUnregistration_RemovesFromRegistry" classname="GorgonzolaMM.Tests.AIBrainIntegrationTests" runstate="Runnable" seed="633790019" result="Passed" start-time="2025-10-25 01:43:19Z" end-time="2025-10-25 01:43:19Z" duration="0.000821" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <reason>
+                <message><![CDATA[]]></message>
+              </reason>
+            </test-case>
+            <test-case id="1010" name="AIBrain_HandlesNullRegistration_Gracefully" fullname="GorgonzolaMM.Tests.AIBrainIntegrationTests.AIBrain_HandlesNullRegistration_Gracefully" methodname="AIBrain_HandlesNullRegistration_Gracefully" classname="GorgonzolaMM.Tests.AIBrainIntegrationTests" runstate="Runnable" seed="621444208" result="Passed" start-time="2025-10-25 01:43:19Z" end-time="2025-10-25 01:43:19Z" duration="0.013252" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[[Test] ✓ Null registrations handled gracefully
+]]></output>
+            </test-case>
+            <test-case id="1008" name="AIBrain_MinionPhase_TicksMinionBrains" fullname="GorgonzolaMM.Tests.AIBrainIntegrationTests.AIBrain_MinionPhase_TicksMinionBrains" methodname="AIBrain_MinionPhase_TicksMinionBrains" classname="GorgonzolaMM.Tests.AIBrainIntegrationTests" runstate="Runnable" seed="87812688" result="Failed" label="Error" start-time="2025-10-25 01:43:19Z" end-time="2025-10-25 01:43:19Z" duration="0.054793" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <failure>
+                <message><![CDATA[UnityEngine.MissingReferenceException : The object of type 'GorgonzolaMM.TurnManager' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object. Parameter name: self]]></message>
+                <stack-trace><![CDATA[  at UnityEngine.Object+MarshalledUnityObject.TryThrowEditorNullExceptionObject (UnityEngine.Object unityObj, System.String parameterName) [0x0006a] in <7b8172fcdd864e17924794813da71712>:0 
+  at UnityEngine.Bindings.ThrowHelper.ThrowArgumentNullException (System.Object obj, System.String parameterName) [0x00010] in <7b8172fcdd864e17924794813da71712>:0 
+  at UnityEngine.MonoBehaviour.InvokeDelayed (UnityEngine.MonoBehaviour self, System.String methodName, System.Single time, System.Single repeatRate) [0x00015] in <7b8172fcdd864e17924794813da71712>:0 
+  at UnityEngine.MonoBehaviour.Invoke (System.String methodName, System.Single time) [0x00001] in <7b8172fcdd864e17924794813da71712>:0 
+  at GorgonzolaMM.TurnManager.TransitionPhase (GorgonzolaMM.TurnManager+TurnPhase nextPhase) [0x0007d] in E:\Tiny_Walnut_Games\Gorgonzola\Assets\Tiny Walnut Games\Scripts\Systems\TurnManager.cs:144 
+  at GorgonzolaMM.TurnManager.ConfirmPlayerAction () [0x0001c] in E:\Tiny_Walnut_Games\Gorgonzola\Assets\Tiny Walnut Games\Scripts\Systems\TurnManager.cs:91 
+  at GorgonzolaMM.Tests.AIBrainIntegrationTests+<AIBrain_MinionPhase_TicksMinionBrains>d__10.MoveNext () [0x00078] in E:\Tiny_Walnut_Games\Gorgonzola\Assets\Tests\PlayMode\AIBrainIntegrationTests.cs:119 
+  at UnityEngine.TestTools.TestEnumerator+<Execute>d__7.MoveNext () [0x0004e] in .\Library\PackageCache\com.unity.test-framework@40b8da2bd3e9\UnityEngine.TestRunner\NUnitExtensions\Attributes\TestEnumerator.cs:44 ]]></stack-trace>
+              </failure>
+              <output><![CDATA[[TurnManager] Phase → PlayerTurn (Turn 0)
+[TurnManager] Phase → EnemyTurn (Turn 0)
+]]></output>
+            </test-case>
+            <test-case id="1005" name="AIBrain_MinionRegistration_AddsToRegistry" fullname="GorgonzolaMM.Tests.AIBrainIntegrationTests.AIBrain_MinionRegistration_AddsToRegistry" methodname="AIBrain_MinionRegistration_AddsToRegistry" classname="GorgonzolaMM.Tests.AIBrainIntegrationTests" runstate="Runnable" seed="635624551" result="Passed" start-time="2025-10-25 01:43:19Z" end-time="2025-10-25 01:43:19Z" duration="0.000793" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <reason>
+                <message><![CDATA[]]></message>
+              </reason>
+            </test-case>
+            <test-case id="1006" name="AIBrain_MinionUnregistration_RemovesFromRegistry" fullname="GorgonzolaMM.Tests.AIBrainIntegrationTests.AIBrain_MinionUnregistration_RemovesFromRegistry" methodname="AIBrain_MinionUnregistration_RemovesFromRegistry" classname="GorgonzolaMM.Tests.AIBrainIntegrationTests" runstate="Runnable" seed="927317225" result="Passed" start-time="2025-10-25 01:43:19Z" end-time="2025-10-25 01:43:19Z" duration="0.000973" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <reason>
+                <message><![CDATA[]]></message>
+              </reason>
+            </test-case>
+            <test-case id="1009" name="AIBrain_PhaseEvents_Subscribers_CanListen" fullname="GorgonzolaMM.Tests.AIBrainIntegrationTests.AIBrain_PhaseEvents_Subscribers_CanListen" methodname="AIBrain_PhaseEvents_Subscribers_CanListen" classname="GorgonzolaMM.Tests.AIBrainIntegrationTests" runstate="Runnable" seed="1968913792" result="Passed" start-time="2025-10-25 01:43:19Z" end-time="2025-10-25 01:43:19Z" duration="0.010093" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[[TurnManager] Phase → PlayerTurn (Turn 0)
+[Test] ✓ Phase change events fire. Changes: 1
+]]></output>
+            </test-case>
+            <test-case id="1007" name="AIBrain_UpdateCalls_Increment_CallCount" fullname="GorgonzolaMM.Tests.AIBrainIntegrationTests.AIBrain_UpdateCalls_Increment_CallCount" methodname="AIBrain_UpdateCalls_Increment_CallCount" classname="GorgonzolaMM.Tests.AIBrainIntegrationTests" runstate="Runnable" seed="917766270" result="Passed" start-time="2025-10-25 01:43:19Z" end-time="2025-10-25 01:43:19Z" duration="0.008011" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[[Test] ✓ AI Update method calls are tracked
+]]></output>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1011" name="GameLoopE2ETests" fullname="GorgonzolaMM.Tests.GameLoopE2ETests" classname="GorgonzolaMM.Tests.GameLoopE2ETests" runstate="Runnable" testcasecount="8" result="Failed" site="Child" start-time="2025-10-25 01:43:19Z" end-time="2025-10-25 01:43:19Z" duration="0.351440" total="8" passed="5" failed="3" inconclusive="0" skipped="0" asserts="0">
+            <properties>
+              <property name="Category" value="GameLoop" />
+            </properties>
+            <failure>
+              <message><![CDATA[One or more child tests had errors]]></message>
+            </failure>
+            <test-case id="1013" name="GameLoop_BeginGame_StartsPlayerPhase" fullname="GorgonzolaMM.Tests.GameLoopE2ETests.GameLoop_BeginGame_StartsPlayerPhase" methodname="GameLoop_BeginGame_StartsPlayerPhase" classname="GorgonzolaMM.Tests.GameLoopE2ETests" runstate="Runnable" seed="953946277" result="Passed" start-time="2025-10-25 01:43:19Z" end-time="2025-10-25 01:43:19Z" duration="0.004586" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[[TurnManager] Phase → PlayerTurn (Turn 0)
+[Test] ✓ Game begins in PlayerTurn phase
+]]></output>
+            </test-case>
+            <test-case id="1014" name="GameLoop_CompletePhaseCycle_TransitionsCorrectly" fullname="GorgonzolaMM.Tests.GameLoopE2ETests.GameLoop_CompletePhaseCycle_TransitionsCorrectly" methodname="GameLoop_CompletePhaseCycle_TransitionsCorrectly" classname="GorgonzolaMM.Tests.GameLoopE2ETests" runstate="Runnable" seed="1297082039" result="Failed" label="Error" start-time="2025-10-25 01:43:19Z" end-time="2025-10-25 01:43:19Z" duration="0.046445" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <failure>
+                <message><![CDATA[UnityEngine.MissingReferenceException : The object of type 'GorgonzolaMM.TurnManager' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object. Parameter name: self]]></message>
+                <stack-trace><![CDATA[  at UnityEngine.Object+MarshalledUnityObject.TryThrowEditorNullExceptionObject (UnityEngine.Object unityObj, System.String parameterName) [0x0006a] in <7b8172fcdd864e17924794813da71712>:0 
+  at UnityEngine.Bindings.ThrowHelper.ThrowArgumentNullException (System.Object obj, System.String parameterName) [0x00010] in <7b8172fcdd864e17924794813da71712>:0 
+  at UnityEngine.MonoBehaviour.InvokeDelayed (UnityEngine.MonoBehaviour self, System.String methodName, System.Single time, System.Single repeatRate) [0x00015] in <7b8172fcdd864e17924794813da71712>:0 
+  at UnityEngine.MonoBehaviour.Invoke (System.String methodName, System.Single time) [0x00001] in <7b8172fcdd864e17924794813da71712>:0 
+  at GorgonzolaMM.TurnManager.TransitionPhase (GorgonzolaMM.TurnManager+TurnPhase nextPhase) [0x0007d] in E:\Tiny_Walnut_Games\Gorgonzola\Assets\Tiny Walnut Games\Scripts\Systems\TurnManager.cs:144 
+  at GorgonzolaMM.TurnManager.ConfirmPlayerAction () [0x0001c] in E:\Tiny_Walnut_Games\Gorgonzola\Assets\Tiny Walnut Games\Scripts\Systems\TurnManager.cs:91 
+  at GorgonzolaMM.Tests.GameLoopE2ETests+<GameLoop_CompletePhaseCycle_TransitionsCorrectly>d__11.MoveNext () [0x00092] in E:\Tiny_Walnut_Games\Gorgonzola\Assets\Tests\PlayMode\GameLoopE2ETests.cs:83 
+  at UnityEngine.TestTools.TestEnumerator+<Execute>d__7.MoveNext () [0x0004e] in .\Library\PackageCache\com.unity.test-framework@40b8da2bd3e9\UnityEngine.TestRunner\NUnitExtensions\Attributes\TestEnumerator.cs:44 ]]></stack-trace>
+              </failure>
+              <output><![CDATA[[TurnManager] Phase → PlayerTurn (Turn 0)
+[TurnManager] Phase → EnemyTurn (Turn 0)
+]]></output>
+            </test-case>
+            <test-case id="1017" name="GameLoop_EnemyAIRegistration_MaintainsRegistry" fullname="GorgonzolaMM.Tests.GameLoopE2ETests.GameLoop_EnemyAIRegistration_MaintainsRegistry" methodname="GameLoop_EnemyAIRegistration_MaintainsRegistry" classname="GorgonzolaMM.Tests.GameLoopE2ETests" runstate="Runnable" seed="1934090841" result="Passed" start-time="2025-10-25 01:43:19Z" end-time="2025-10-25 01:43:19Z" duration="0.164965" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[[TurnManager] Ready. Awaiting first player input...
+[TurnManager] Phase → PlayerTurn (Turn 0)
+[Test] ✓ Enemy AI registry managed correctly
+]]></output>
+            </test-case>
+            <test-case id="1012" name="GameLoop_Initializes_WithValidManagers" fullname="GorgonzolaMM.Tests.GameLoopE2ETests.GameLoop_Initializes_WithValidManagers" methodname="GameLoop_Initializes_WithValidManagers" classname="GorgonzolaMM.Tests.GameLoopE2ETests" runstate="Runnable" seed="1653494591" result="Passed" start-time="2025-10-25 01:43:19Z" end-time="2025-10-25 01:43:19Z" duration="0.003579" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[[Test] ✓ Game loop managers initialized correctly
+]]></output>
+            </test-case>
+            <test-case id="1016" name="GameLoop_MultiTurnSimulation_RunsStably" fullname="GorgonzolaMM.Tests.GameLoopE2ETests.GameLoop_MultiTurnSimulation_RunsStably" methodname="GameLoop_MultiTurnSimulation_RunsStably" classname="GorgonzolaMM.Tests.GameLoopE2ETests" runstate="Runnable" seed="385014285" result="Failed" label="Error" start-time="2025-10-25 01:43:19Z" end-time="2025-10-25 01:43:19Z" duration="0.033605" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <failure>
+                <message><![CDATA[UnityEngine.MissingReferenceException : The object of type 'GorgonzolaMM.TurnManager' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object. Parameter name: self]]></message>
+                <stack-trace><![CDATA[  at UnityEngine.Object+MarshalledUnityObject.TryThrowEditorNullExceptionObject (UnityEngine.Object unityObj, System.String parameterName) [0x0006a] in <7b8172fcdd864e17924794813da71712>:0 
+  at UnityEngine.Bindings.ThrowHelper.ThrowArgumentNullException (System.Object obj, System.String parameterName) [0x00010] in <7b8172fcdd864e17924794813da71712>:0 
+  at UnityEngine.MonoBehaviour.InvokeDelayed (UnityEngine.MonoBehaviour self, System.String methodName, System.Single time, System.Single repeatRate) [0x00015] in <7b8172fcdd864e17924794813da71712>:0 
+  at UnityEngine.MonoBehaviour.Invoke (System.String methodName, System.Single time) [0x00001] in <7b8172fcdd864e17924794813da71712>:0 
+  at GorgonzolaMM.TurnManager.TransitionPhase (GorgonzolaMM.TurnManager+TurnPhase nextPhase) [0x0007d] in E:\Tiny_Walnut_Games\Gorgonzola\Assets\Tiny Walnut Games\Scripts\Systems\TurnManager.cs:144 
+  at GorgonzolaMM.TurnManager.ConfirmPlayerAction () [0x0001c] in E:\Tiny_Walnut_Games\Gorgonzola\Assets\Tiny Walnut Games\Scripts\Systems\TurnManager.cs:91 
+  at GorgonzolaMM.Tests.GameLoopE2ETests+<GameLoop_MultiTurnSimulation_RunsStably>d__13.MoveNext () [0x00053] in E:\Tiny_Walnut_Games\Gorgonzola\Assets\Tests\PlayMode\GameLoopE2ETests.cs:125 
+  at UnityEngine.TestTools.TestEnumerator+<Execute>d__7.MoveNext () [0x0004e] in .\Library\PackageCache\com.unity.test-framework@40b8da2bd3e9\UnityEngine.TestRunner\NUnitExtensions\Attributes\TestEnumerator.cs:44 ]]></stack-trace>
+              </failure>
+              <output><![CDATA[[TurnManager] Phase → PlayerTurn (Turn 0)
+[TurnManager] Phase → EnemyTurn (Turn 0)
+]]></output>
+            </test-case>
+            <test-case id="1018" name="GameLoop_PlayerCanInitiateActions_DuringPlayerPhase" fullname="GorgonzolaMM.Tests.GameLoopE2ETests.GameLoop_PlayerCanInitiateActions_DuringPlayerPhase" methodname="GameLoop_PlayerCanInitiateActions_DuringPlayerPhase" classname="GorgonzolaMM.Tests.GameLoopE2ETests" runstate="Runnable" seed="432426804" result="Passed" start-time="2025-10-25 01:43:19Z" end-time="2025-10-25 01:43:19Z" duration="0.045565" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[[TurnManager] Ready. Awaiting first player input...
+[TurnManager] Phase → PlayerTurn (Turn 0)
+[TurnManager] Phase → EnemyTurn (Turn 0)
+[Test] ✓ Player can initiate actions during PlayerPhase
+]]></output>
+            </test-case>
+            <test-case id="1019" name="GameLoop_PlayerPhaseOnly_RejectsConfirmOutsidePhase" fullname="GorgonzolaMM.Tests.GameLoopE2ETests.GameLoop_PlayerPhaseOnly_RejectsConfirmOutsidePhase" methodname="GameLoop_PlayerPhaseOnly_RejectsConfirmOutsidePhase" classname="GorgonzolaMM.Tests.GameLoopE2ETests" runstate="Runnable" seed="1923828417" result="Passed" start-time="2025-10-25 01:43:19Z" end-time="2025-10-25 01:43:19Z" duration="0.005778" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[[TurnManager] Phase → PlayerTurn (Turn 0)
+[TurnManager] Phase → EnemyTurn (Turn 0)
+[TurnManager] Not in player phase.
+[Test] ✓ ConfirmPlayerAction gracefully handles wrong phase
+]]></output>
+            </test-case>
+            <test-case id="1015" name="GameLoop_TurnCountIncrements_AfterEachCycle" fullname="GorgonzolaMM.Tests.GameLoopE2ETests.GameLoop_TurnCountIncrements_AfterEachCycle" methodname="GameLoop_TurnCountIncrements_AfterEachCycle" classname="GorgonzolaMM.Tests.GameLoopE2ETests" runstate="Runnable" seed="1664200526" result="Failed" label="Error" start-time="2025-10-25 01:43:19Z" end-time="2025-10-25 01:43:19Z" duration="0.026523" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <failure>
+                <message><![CDATA[UnityEngine.MissingReferenceException : The object of type 'GorgonzolaMM.TurnManager' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object. Parameter name: self]]></message>
+                <stack-trace><![CDATA[  at UnityEngine.Object+MarshalledUnityObject.TryThrowEditorNullExceptionObject (UnityEngine.Object unityObj, System.String parameterName) [0x0006a] in <7b8172fcdd864e17924794813da71712>:0 
+  at UnityEngine.Bindings.ThrowHelper.ThrowArgumentNullException (System.Object obj, System.String parameterName) [0x00010] in <7b8172fcdd864e17924794813da71712>:0 
+  at UnityEngine.MonoBehaviour.InvokeDelayed (UnityEngine.MonoBehaviour self, System.String methodName, System.Single time, System.Single repeatRate) [0x00015] in <7b8172fcdd864e17924794813da71712>:0 
+  at UnityEngine.MonoBehaviour.Invoke (System.String methodName, System.Single time) [0x00001] in <7b8172fcdd864e17924794813da71712>:0 
+  at GorgonzolaMM.TurnManager.TransitionPhase (GorgonzolaMM.TurnManager+TurnPhase nextPhase) [0x0007d] in E:\Tiny_Walnut_Games\Gorgonzola\Assets\Tiny Walnut Games\Scripts\Systems\TurnManager.cs:144 
+  at GorgonzolaMM.TurnManager.ConfirmPlayerAction () [0x0001c] in E:\Tiny_Walnut_Games\Gorgonzola\Assets\Tiny Walnut Games\Scripts\Systems\TurnManager.cs:91 
+  at GorgonzolaMM.Tests.GameLoopE2ETests+<GameLoop_TurnCountIncrements_AfterEachCycle>d__12.MoveNext () [0x00047] in E:\Tiny_Walnut_Games\Gorgonzola\Assets\Tests\PlayMode\GameLoopE2ETests.cs:108 
+  at UnityEngine.TestTools.TestEnumerator+<Execute>d__7.MoveNext () [0x0004e] in .\Library\PackageCache\com.unity.test-framework@40b8da2bd3e9\UnityEngine.TestRunner\NUnitExtensions\Attributes\TestEnumerator.cs:44 ]]></stack-trace>
+              </failure>
+              <output><![CDATA[[TurnManager] Phase → PlayerTurn (Turn 0)
+[TurnManager] Phase → EnemyTurn (Turn 0)
+]]></output>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1020" name="HealthSystemTests" fullname="GorgonzolaMM.Tests.HealthSystemTests" classname="GorgonzolaMM.Tests.HealthSystemTests" runstate="Runnable" testcasecount="9" result="Passed" start-time="2025-10-25 01:43:19Z" end-time="2025-10-25 01:43:19Z" duration="0.051890" total="9" passed="9" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties>
+              <property name="Category" value="Health" />
+            </properties>
+            <test-case id="1023" name="Health_ApplyDamage_ClampsToZero" fullname="GorgonzolaMM.Tests.HealthSystemTests.Health_ApplyDamage_ClampsToZero" methodname="Health_ApplyDamage_ClampsToZero" classname="GorgonzolaMM.Tests.HealthSystemTests" runstate="Runnable" seed="1776884270" result="Passed" start-time="2025-10-25 01:43:19Z" end-time="2025-10-25 01:43:19Z" duration="0.004421" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[[Test] ✓ Health clamped to >= 0
+]]></output>
+            </test-case>
+            <test-case id="1022" name="Health_ApplyDamage_ReducesHealth" fullname="GorgonzolaMM.Tests.HealthSystemTests.Health_ApplyDamage_ReducesHealth" methodname="Health_ApplyDamage_ReducesHealth" classname="GorgonzolaMM.Tests.HealthSystemTests" runstate="Runnable" seed="948875862" result="Passed" start-time="2025-10-25 01:43:19Z" end-time="2025-10-25 01:43:19Z" duration="0.001657" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[[Test] ✓ Damage applied: 100 → 90
+]]></output>
+            </test-case>
+            <test-case id="1021" name="Health_CanBeAdded_ToGameObject" fullname="GorgonzolaMM.Tests.HealthSystemTests.Health_CanBeAdded_ToGameObject" methodname="Health_CanBeAdded_ToGameObject" classname="GorgonzolaMM.Tests.HealthSystemTests" runstate="Runnable" seed="562443273" result="Passed" start-time="2025-10-25 01:43:19Z" end-time="2025-10-25 01:43:19Z" duration="0.002007" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[[Test] ✓ Health component can be added
+]]></output>
+            </test-case>
+            <test-case id="1029" name="Health_CanBeReset_ToMax" fullname="GorgonzolaMM.Tests.HealthSystemTests.Health_CanBeReset_ToMax" methodname="Health_CanBeReset_ToMax" classname="GorgonzolaMM.Tests.HealthSystemTests" runstate="Runnable" seed="1015433783" result="Passed" start-time="2025-10-25 01:43:19Z" end-time="2025-10-25 01:43:19Z" duration="0.002371" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[[Test] ✓ Health reset to max
+]]></output>
+            </test-case>
+            <test-case id="1026" name="Health_FiresEvent_OnDamageApplied" fullname="GorgonzolaMM.Tests.HealthSystemTests.Health_FiresEvent_OnDamageApplied" methodname="Health_FiresEvent_OnDamageApplied" classname="GorgonzolaMM.Tests.HealthSystemTests" runstate="Runnable" seed="57287979" result="Passed" start-time="2025-10-25 01:43:19Z" end-time="2025-10-25 01:43:19Z" duration="0.002909" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[[Test] ✓ OnDamageApplied event fires with correct amount
+]]></output>
+            </test-case>
+            <test-case id="1025" name="Health_FiresEvent_OnDeath" fullname="GorgonzolaMM.Tests.HealthSystemTests.Health_FiresEvent_OnDeath" methodname="Health_FiresEvent_OnDeath" classname="GorgonzolaMM.Tests.HealthSystemTests" runstate="Runnable" seed="43597323" result="Passed" start-time="2025-10-25 01:43:19Z" end-time="2025-10-25 01:43:19Z" duration="0.002019" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[[Test] ✓ OnDeath event fires when health = 0
+]]></output>
+            </test-case>
+            <test-case id="1028" name="Health_Heal_ClampsToMax" fullname="GorgonzolaMM.Tests.HealthSystemTests.Health_Heal_ClampsToMax" methodname="Health_Heal_ClampsToMax" classname="GorgonzolaMM.Tests.HealthSystemTests" runstate="Runnable" seed="740625643" result="Passed" start-time="2025-10-25 01:43:19Z" end-time="2025-10-25 01:43:19Z" duration="0.001794" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[[Test] ✓ Health clamped to max on heal
+]]></output>
+            </test-case>
+            <test-case id="1027" name="Health_Heal_IncreasesHealth" fullname="GorgonzolaMM.Tests.HealthSystemTests.Health_Heal_IncreasesHealth" methodname="Health_Heal_IncreasesHealth" classname="GorgonzolaMM.Tests.HealthSystemTests" runstate="Runnable" seed="918754704" result="Passed" start-time="2025-10-25 01:43:19Z" end-time="2025-10-25 01:43:19Z" duration="0.001686" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[[Test] ✓ Healing works: 50 → 75
+]]></output>
+            </test-case>
+            <test-case id="1024" name="Health_IsDead_WhenHealthZero" fullname="GorgonzolaMM.Tests.HealthSystemTests.Health_IsDead_WhenHealthZero" methodname="Health_IsDead_WhenHealthZero" classname="GorgonzolaMM.Tests.HealthSystemTests" runstate="Runnable" seed="2066284508" result="Passed" start-time="2025-10-25 01:43:19Z" end-time="2025-10-25 01:43:19Z" duration="0.001762" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[[Test] ✓ Death state triggered correctly
+]]></output>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1030" name="TurnManagerTests" fullname="GorgonzolaMM.Tests.TurnManagerTests" classname="GorgonzolaMM.Tests.TurnManagerTests" runstate="Runnable" testcasecount="8" result="Passed" start-time="2025-10-25 01:43:19Z" end-time="2025-10-25 01:43:19Z" duration="0.053550" total="8" passed="8" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties>
+              <property name="Category" value="TurnSystem" />
+            </properties>
+            <test-case id="1032" name="TurnManager_BeginGame_StartsPlayerPhase" fullname="GorgonzolaMM.Tests.TurnManagerTests.TurnManager_BeginGame_StartsPlayerPhase" methodname="TurnManager_BeginGame_StartsPlayerPhase" classname="GorgonzolaMM.Tests.TurnManagerTests" runstate="Runnable" seed="2015723260" result="Passed" start-time="2025-10-25 01:43:19Z" end-time="2025-10-25 01:43:19Z" duration="0.003208" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[[TurnManager] Phase → PlayerTurn (Turn 0)
+[Test] ✓ BeginGame transitions to PlayerTurn at turn 0
+]]></output>
+            </test-case>
+            <test-case id="1034" name="TurnManager_ConfirmPlayerAction_OutsidePlayerPhase_LogsWarning" fullname="GorgonzolaMM.Tests.TurnManagerTests.TurnManager_ConfirmPlayerAction_OutsidePlayerPhase_LogsWarning" methodname="TurnManager_ConfirmPlayerAction_OutsidePlayerPhase_LogsWarning" classname="GorgonzolaMM.Tests.TurnManagerTests" runstate="Runnable" seed="476904873" result="Passed" start-time="2025-10-25 01:43:19Z" end-time="2025-10-25 01:43:19Z" duration="0.005823" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[[TurnManager] Phase → PlayerTurn (Turn 0)
+[TurnManager] Phase → EnemyTurn (Turn 0)
+[TurnManager] Not in player phase.
+[Test] ✓ ConfirmPlayerAction outside PlayerPhase handled gracefully
+]]></output>
+            </test-case>
+            <test-case id="1033" name="TurnManager_ConfirmPlayerAction_WhenInPlayerPhase_DoesNotThrow" fullname="GorgonzolaMM.Tests.TurnManagerTests.TurnManager_ConfirmPlayerAction_WhenInPlayerPhase_DoesNotThrow" methodname="TurnManager_ConfirmPlayerAction_WhenInPlayerPhase_DoesNotThrow" classname="GorgonzolaMM.Tests.TurnManagerTests" runstate="Runnable" seed="1748562988" result="Passed" start-time="2025-10-25 01:43:19Z" end-time="2025-10-25 01:43:19Z" duration="0.004003" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[[TurnManager] Phase → PlayerTurn (Turn 0)
+[TurnManager] Phase → EnemyTurn (Turn 0)
+[Test] ✓ ConfirmPlayerAction executes without exception
+]]></output>
+            </test-case>
+            <test-case id="1035" name="TurnManager_CurrentPhaseProperty_IsAccessible" fullname="GorgonzolaMM.Tests.TurnManagerTests.TurnManager_CurrentPhaseProperty_IsAccessible" methodname="TurnManager_CurrentPhaseProperty_IsAccessible" classname="GorgonzolaMM.Tests.TurnManagerTests" runstate="Runnable" seed="879290370" result="Passed" start-time="2025-10-25 01:43:19Z" end-time="2025-10-25 01:43:19Z" duration="0.001816" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[[Test] ✓ CurrentPhase property is readable
+]]></output>
+            </test-case>
+            <test-case id="1031" name="TurnManager_Initializes_InIdlePhase" fullname="GorgonzolaMM.Tests.TurnManagerTests.TurnManager_Initializes_InIdlePhase" methodname="TurnManager_Initializes_InIdlePhase" classname="GorgonzolaMM.Tests.TurnManagerTests" runstate="Runnable" seed="627801599" result="Passed" start-time="2025-10-25 01:43:19Z" end-time="2025-10-25 01:43:19Z" duration="0.001662" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[[Test] ✓ TurnManager initializes in Idle phase
+]]></output>
+            </test-case>
+            <test-case id="1038" name="TurnManager_OnPhaseChanged_FiresOnBeginGame" fullname="GorgonzolaMM.Tests.TurnManagerTests.TurnManager_OnPhaseChanged_FiresOnBeginGame" methodname="TurnManager_OnPhaseChanged_FiresOnBeginGame" classname="GorgonzolaMM.Tests.TurnManagerTests" runstate="Runnable" seed="1445394837" result="Passed" start-time="2025-10-25 01:43:19Z" end-time="2025-10-25 01:43:19Z" duration="0.003217" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[[TurnManager] Phase → PlayerTurn (Turn 0)
+[Test] ✓ OnPhaseChanged event fires on BeginGame
+]]></output>
+            </test-case>
+            <test-case id="1037" name="TurnManager_OnPhaseChanged_IsSubscribable" fullname="GorgonzolaMM.Tests.TurnManagerTests.TurnManager_OnPhaseChanged_IsSubscribable" methodname="TurnManager_OnPhaseChanged_IsSubscribable" classname="GorgonzolaMM.Tests.TurnManagerTests" runstate="Runnable" seed="178834352" result="Passed" start-time="2025-10-25 01:43:19Z" end-time="2025-10-25 01:43:19Z" duration="0.002206" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[[Test] ✓ OnPhaseChanged event is subscribable
+]]></output>
+            </test-case>
+            <test-case id="1036" name="TurnManager_TurnCountProperty_IsAccessible" fullname="GorgonzolaMM.Tests.TurnManagerTests.TurnManager_TurnCountProperty_IsAccessible" methodname="TurnManager_TurnCountProperty_IsAccessible" classname="GorgonzolaMM.Tests.TurnManagerTests" runstate="Runnable" seed="1734595927" result="Passed" start-time="2025-10-25 01:43:19Z" end-time="2025-10-25 01:43:19Z" duration="0.004728" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[[TurnManager] Phase → PlayerTurn (Turn 0)
+[Test] ✓ TurnCount property is readable: 0
+Saving results to: C:/Users/Jerry/AppData/LocalLow/Tiny Walnut Games/Gorgonzola\TestResults.xml
+]]></output>
+            </test-case>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

@@ -85,10 +85,10 @@ namespace GorgonzolaMM.Tests
         }
 
         [Test]
-        public void TurnManager_OnPhaseChanged_EventExists()
+        public void TurnManager_OnPhaseChanged_IsSubscribable()
         {
-            Assert.IsNotNull(turnManager.OnPhaseChanged);
-            Debug.Log("[Test] ✓ OnPhaseChanged event exists");
+            Assert.DoesNotThrow(() => turnManager.OnPhaseChanged += phase => { });
+            Debug.Log("[Test] ✓ OnPhaseChanged event is subscribable");
         }
 
         [Test]

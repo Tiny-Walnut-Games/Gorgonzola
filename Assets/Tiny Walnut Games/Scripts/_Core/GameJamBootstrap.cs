@@ -23,6 +23,16 @@ namespace GorgonzolaMM
         {
             if (verbose)
                 Debug.Log("[Bootstrap] Game ready. Awaiting player input.");
+            
+            // Start the turn system
+            if (TurnManager.Instance != null)
+            {
+                TurnManager.Instance.BeginGame();
+            }
+            else if (verbose)
+            {
+                Debug.LogWarning("[Bootstrap] TurnManager not found. Cannot start turn system.");
+            }
         }
     }
 }
