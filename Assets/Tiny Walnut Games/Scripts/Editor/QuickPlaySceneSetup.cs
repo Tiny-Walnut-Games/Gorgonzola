@@ -198,10 +198,10 @@ namespace GorgonzolaMM.Editor
                 // Movement abilities
                 var characterMovement = playerGO.AddComponent<MoreMountains.TopDownEngine.CharacterMovement>();
                 characterMovement.WalkSpeed = 4f;
-                characterMovement.RunSpeed = 8f;
                 
                 var characterOrientation = playerGO.AddComponent<MoreMountains.TopDownEngine.CharacterOrientation3D>();
                 var characterRun = playerGO.AddComponent<MoreMountains.TopDownEngine.CharacterRun>();
+                characterRun.RunSpeed = 8f;
                 
                 // Health system
                 var health = playerGO.AddComponent<MoreMountains.TopDownEngine.Health>();
@@ -310,9 +310,9 @@ namespace GorgonzolaMM.Editor
                 var orientation = snakeGO.AddComponent<MoreMountains.TopDownEngine.CharacterOrientation3D>();
                 
                 // AI System
-                var brain = snakeGO.AddComponent<MoreMountains.TopDownEngine.AIBrain>();
-                var aiDecision = snakeGO.AddComponent<MoreMountains.TopDownEngine.AIDecisionDetectTargetRadius>();
-                var aiAction = snakeGO.AddComponent<MoreMountains.TopDownEngine.AIActionMoveTowardsTarget>();
+                var brain = snakeGO.AddComponent<MoreMountains.Tools.AIBrain>();
+                var aiDecision = snakeGO.AddComponent<MoreMountains.TopDownEngine.AIDecisionDetectTargetRadius3D>();
+                var aiAction = snakeGO.AddComponent<MoreMountains.TopDownEngine.AIActionMoveTowardsTarget3D>();
                 
                 // Configure based on snake type
                 switch (snakeType)
@@ -338,7 +338,8 @@ namespace GorgonzolaMM.Editor
 
                 // Damage on contact
                 var damageOnTouch = snakeGO.AddComponent<MoreMountains.TopDownEngine.DamageOnTouch>();
-                damageOnTouch.DamageCaused = 10f;
+                damageOnTouch.MinDamageCaused = 10f;
+                damageOnTouch.MaxDamageCaused = 10f;
                 
                 Debug.Log($"[QuickPlaySceneSetup] ✅ {snakeType} created with TopDown Engine AI");
             }

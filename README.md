@@ -72,14 +72,27 @@ Assets/
 
 ### Setup
 1. Clone/open this repo in Unity.
-2. Open `Assets/Scenes/Main.unity`.
+2. Open `Assets/Scenes/Main.unity` (or use scene setup menu).
 3. Press **Play** in the Editor.
 
 ### Development Commands
 ```bash
 # Run tests (via Unity Test Runner)
-# Window > General > Test Runner
+Window > General > Test Runner
+→ Click "PlayMode" tab
+→ Click "Run All"
+
+# Expected: ~30 tests pass in ~10 seconds
 ```
+
+### Test-Driven Development (TDD) Phase
+**Status**: Currently in active TDD development.
+- ✅ 31+ comprehensive PlayMode/EditMode tests
+- ✅ Full game loop validation (player, enemies, turns, AI)
+- ✅ Health/damage system tests
+- ✅ AI brain registration tests
+
+**See**: `.zencoder/docs/RUNNING_TESTS.md` for detailed testing guide.
 
 ---
 

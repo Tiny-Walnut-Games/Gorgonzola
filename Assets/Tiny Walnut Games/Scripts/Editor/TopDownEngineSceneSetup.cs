@@ -3,6 +3,7 @@ using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine.SceneManagement;
 using MoreMountains.TopDownEngine;
+using MoreMountains.Tools;
 using Unity.Cinemachine;
 
 namespace GorgonzolaMM.Editor
@@ -68,13 +69,12 @@ namespace GorgonzolaMM.Editor
             var levelMgrGO = new GameObject("LevelManager");
             levelMgrGO.transform.SetParent(managersGO.transform);
             var levelMgr = levelMgrGO.AddComponent<LevelManager>();
-            levelMgr.DelayBeforeDestruction = 2f;
+            levelMgr.DelayBeforeDeathScreen = 2f;
 
             // GameManager (TopDown Engine core)
             var gameMgrGO = new GameObject("GameManager");
             gameMgrGO.transform.SetParent(managersGO.transform);
             var gameMgr = gameMgrGO.AddComponent<GameManager>();
-            gameMgr.GameOverScreen = null; // Will be set after UI creation
 
             // InputManager 
             var inputMgrGO = new GameObject("InputManager");
@@ -196,13 +196,13 @@ namespace GorgonzolaMM.Editor
             // 4. CharacterMovement (handles input and movement)
             var characterMovement = playerGO.AddComponent<CharacterMovement>();
             characterMovement.WalkSpeed = 4f;
-            characterMovement.RunSpeed = 8f;
 
             // 5. CharacterOrientation3D (handles facing direction)
             var characterOrientation = playerGO.AddComponent<CharacterOrientation3D>();
 
             // 6. CharacterRun (allows running)
             var characterRun = playerGO.AddComponent<CharacterRun>();
+            characterRun.RunSpeed = 8f;
 
             // 7. Health system
             var health = playerGO.AddComponent<Health>();
@@ -244,7 +244,12 @@ namespace GorgonzolaMM.Editor
             spawnPointGO.transform.SetParent(weaponGO.transform);
             spawnPointGO.transform.localPosition = new Vector3(0, 0, 1);
             
-            weapon.WeaponAttachment = spawnPointGO.transform;
+            // Get the CharacterHandleWeapon component from the player to set the weapon attachment
+            var weaponHandler = player.GetComponent<CharacterHandleWeapon>();
+            if (weaponHandler != null)
+            {
+                weaponHandler.WeaponAttachment = spawnPointGO.transform;
+            }
 
             // Weapon aim (for targeting)
             var weaponAim = weaponGO.AddComponent<WeaponAim3D>();
@@ -326,8 +331,8 @@ namespace GorgonzolaMM.Editor
 
             // AI Brain based on snake type
             var brain = snakeGO.AddComponent<AIBrain>();
-            var aiDecision = snakeGO.AddComponent<AIDecisionDetectTargetRadius>();
-            var aiAction = snakeGO.AddComponent<AIActionMoveTowardsTarget>();
+            var aiDecision = snakeGO.AddComponent<AIDecisionDetectTargetRadius3D>();
+            var aiAction = snakeGO.AddComponent<AIActionMoveTowardsTarget3D>();
             
             // Configure AI based on type
             switch (snakeType)
@@ -355,7 +360,8 @@ namespace GorgonzolaMM.Editor
 
             // Damage on touch
             var damageOnTouch = snakeGO.AddComponent<DamageOnTouch>();
-            damageOnTouch.DamageCaused = 10f;
+            damageOnTouch.MinDamageCaused = 10f;
+            damageOnTouch.MaxDamageCaused = 10f;
 
             return snakeGO;
         }
@@ -432,12 +438,10 @@ namespace GorgonzolaMM.Editor
                 virtualCam.LookAt = player.transform;
             }
 
-            // Position composer for smooth following
-            var positionComposer = virtualCamGO.AddComponent<CinemachinePositionComposer>();
-            positionComposer.ScreenPosition = new Vector2(0.5f, 0.4f); // Slightly below center
+            // Note: Cinemachine 3.x uses different composing approach
+            // Position and rotation are handled via the CinemachineCamera damping settings
 
-            // Rotation composer
-            var rotationComposer = virtualCamGO.AddComponent<CinemachineRotationComposer>();
+            Debug.Log("[TopDownEngineSceneSetup] Cinemachine virtual camera configured");
 
             Debug.Log("[TopDownEngineSceneSetup] Cinemachine camera system created");
         }
